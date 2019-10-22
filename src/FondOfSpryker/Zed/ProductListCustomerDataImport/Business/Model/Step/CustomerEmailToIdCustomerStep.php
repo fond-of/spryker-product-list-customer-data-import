@@ -47,7 +47,6 @@ class CustomerEmailToIdCustomerStep implements DataImportStepInterface
     protected function getIdCustomerByEmail(string $customerEmail): int
     {
         if (!isset($this->idCustomerListCache[$customerEmail])) {
-            /** @var \Orm\Zed\ProductList\Persistence\SpyProductListQuery $productListQuery */
             $customerQuery = SpyCustomerQuery::create()->select(SpyCustomerTableMap::COL_ID_CUSTOMER);
 
             /** @var int|null $idCustomer */
