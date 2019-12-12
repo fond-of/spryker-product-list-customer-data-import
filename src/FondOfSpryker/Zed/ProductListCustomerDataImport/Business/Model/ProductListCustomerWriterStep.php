@@ -13,8 +13,7 @@ class ProductListCustomerWriterStep extends PublishAwareStep implements DataImpo
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     * @return void
      */
     public function execute(DataSetInterface $dataSet): void
     {
@@ -24,14 +23,13 @@ class ProductListCustomerWriterStep extends PublishAwareStep implements DataImpo
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     * @return void
      */
     protected function saveProductListCustomer(DataSetInterface $dataSet): void
     {
         $productListCustomerEntity = SpyProductListCustomerQuery::create()
-            ->filterByFkCustomer($dataSet[ProductListCustomerDataSetInterface::ID_PRODUCT_LIST])
-            ->filterByFkProductList($dataSet[ProductListCustomerDataSetInterface::ID_CUSTOMER])
+            ->filterByFkCustomer($dataSet[ProductListCustomerDataSetInterface::ID_CUSTOMER])
+            ->filterByFkProductList($dataSet[ProductListCustomerDataSetInterface::ID_PRODUCT_LIST])
             ->findOneOrCreate();
 
         if ($productListCustomerEntity->isNew() === true) {
@@ -41,5 +39,4 @@ class ProductListCustomerWriterStep extends PublishAwareStep implements DataImpo
                 ->save();
         }
     }
-
 }
