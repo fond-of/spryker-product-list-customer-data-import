@@ -5,8 +5,6 @@ namespace FondOfSpryker\Zed\ProductListCustomerDataImport\Business\Model\Step;
 use FondOfSpryker\Zed\ProductListCustomerDataImport\Business\Model\DataSet\ProductListCustomerDataSetInterface;
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
 use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
-use Orm\Zed\ProductList\Persistence\Map\SpyProductListTableMap;
-use Orm\Zed\ProductList\Persistence\SpyProductListQuery;
 use Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Exception\InvalidDataException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -37,12 +35,11 @@ class CustomerEmailToIdCustomerStep implements DataImportStepInterface
     }
 
     /**
-     * @param string $productListTitle
+     * @param string $customerEmail
+     *
+     * @throws \Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException
      *
      * @return int
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException
      */
     protected function getIdCustomerByEmail(string $customerEmail): int
     {
