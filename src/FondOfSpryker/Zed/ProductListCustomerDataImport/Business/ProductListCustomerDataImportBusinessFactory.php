@@ -7,8 +7,6 @@ use FondOfSpryker\Zed\ProductListCustomerDataImport\Business\Model\Step\Customer
 use FondOfSpryker\Zed\ProductListCustomerDataImport\Business\Model\Step\ProductListTitleToIdProductListStep;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
-use Spryker\Zed\ProductListDataImport\Business\Model\ProductListWriterStep;
-use Spryker\Zed\ProductListDataImport\Business\Model\Step\ProductListKeyToIdProductListStep;
 
 /**
  * @method \FondOfSpryker\Zed\ProductListCustomerDataImport\ProductListCustomerDataImportConfig getConfig()
@@ -49,5 +47,4 @@ class ProductListCustomerDataImportBusinessFactory extends DataImportBusinessFac
     {
         return new CustomerEmailToIdCustomerStep();
     }
-
 }

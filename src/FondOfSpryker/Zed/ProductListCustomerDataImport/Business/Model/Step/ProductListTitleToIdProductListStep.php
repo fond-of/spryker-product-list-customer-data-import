@@ -10,7 +10,6 @@ use Spryker\Zed\DataImport\Business\Exception\InvalidDataException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-
 class ProductListTitleToIdProductListStep implements DataImportStepInterface
 {
     /**
@@ -20,14 +19,15 @@ class ProductListTitleToIdProductListStep implements DataImportStepInterface
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     * 
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException
+     *
      * @throws \Spryker\Zed\DataImport\Business\Exception\InvalidDataException
+     *
+     * @return void
      */
     public function execute(DataSetInterface $dataSet): void
     {
         $productListTitle = $dataSet[ProductListCustomerDataSetInterface::PRODUCT_LIST];
+
         if (!$productListTitle) {
             throw new InvalidDataException(sprintf('"%s" is required.', ProductListCustomerDataSetInterface::PRODUCT_LIST));
         }
@@ -38,10 +38,9 @@ class ProductListTitleToIdProductListStep implements DataImportStepInterface
     /**
      * @param string $productListTitle
      *
-     * @return int
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @throws \Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException
+     *
+     * @return int
      */
     protected function getIdProductListByTitle(string $productListTitle): int
     {

@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReportTransfer;
 use Spryker\Zed\DataImport\Dependency\Plugin\DataImportPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\ProductListDataImport\ProductListDataImportConfig;
 
 /**
  * @method \FondOfSpryker\Zed\ProductListCustomerDataImport\Business\ProductListCustomerDataImportFacadeInterface getFacade()
